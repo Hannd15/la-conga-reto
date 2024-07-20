@@ -1,18 +1,44 @@
 /* static/styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-size: 100% 100%;
+background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+background-image: radial-gradient(18% 28% at 23% 60%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #86F3FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #FFFCD19C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #96C9FFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #DCFFA1FC 24%, #073AFF00 100%),linear-gradient(125deg, #98D5FFFF 1%, #58A8FFFF 100%);
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    color: #ff0000;
+    color: #222;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 p {
     color: #666;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.content {
+    flex: 1 1 40%; /* Ajustar este valor para hacer la columna más angosta */
+    padding: 5px;
+}
+
+.map {
+    height: 800px; /* Aumenta la altura del mapa */
+    width: 100%;
+    padding: 0px;
+    border: 1px solid #ccc;
+}
+
+.info {
+    flex: 1 1 60%; /* Ajustar este valor para hacer la segunda columna más ancha */
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    margin-left: 20px;
 }

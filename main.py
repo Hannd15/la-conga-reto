@@ -1,60 +1,73 @@
 from flask import Flask, render_template
 import pandas as pd
 import folium
-from shapely.geometry import Point
-import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
     try:
-        # Leer el archivo CSV con coma como delimitador y manejar las comillas correctamente
-        file_path = 'data/humedales_colombia.csv'
+        file_path = 'data/Ramsar_sites.csv'
         df = pd.read_csv(file_path, delimiter=',', quotechar='"')
 
-        # Convertir las coordenadas a formato decimal
+        #Definción de elementos
         df['Latitude'] = df['Latitude'].apply(lambda x: dms_to_dd(x))
         df['Longitude'] = df['Longitude'].apply(lambda x: dms_to_dd(x))
-
-        # Filtrar filas con valores NaN en las columnas de latitud o longitud
         df = df.dropna(subset=['Latitude', 'Longitude'])
-
-        # Filtrar los datos para mantener solo los que están en Colombia
         df_colombia = df[df['Country'] == 'Colombia']
-
-        # Crear el mapa base de Folium
         m = folium.Map(location=[4.5, -74.0], zoom_start=6)
 
-        # Añadir puntos al mapa
+        #Crea capa de estilo
+        folium.TileLayer(
+            tiles='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+            attr='© OpenStreetMap contributors © CartoDB',
+            name='CartoDB Positron'
+        ).add_to(m)
+
+        #Crea capa de elementos
+        wetland_layer = folium.FeatureGroup(name='Humedales Colombianos')
+
+        def get_color(name):
+            if "Complejo" in name:
+                return 'blue'
+            elif "Sistema" in name:
+                return 'green'
+            else:
+                return 'red'
+
+        #Crea los marcadores de cada humedal
         for _, row in df_colombia.iterrows():
+            color = get_color(row['Site name'])
+            popup_info = f"""
+            <b>{row['Site name']}</b><br>
+            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}')">Ver Información</button>
+            """
             folium.Marker(
                 location=[row['Latitude'], row['Longitude']],
-                popup=f"{row['Site name']}<br>Region: {row['Region']}<br>Size: {row['Area (ha)']} ha",
-                icon=folium.Icon(color='red')
-            ).add_to(m)
+                popup=folium.Popup(popup_info, max_width=225),
+                icon=folium.Icon(color=color)
+            ).add_to(wetland_layer)
 
-        # Crear la carpeta 'templates' si no existe
-        if not os.path.exists('templates'):
-            os.makedirs('templates')
-
-        # Guardar el mapa en un archivo HTML
-        map_path = 'templates/map.html'
+        # Añade pas de elementos y estilo
+        wetland_layer.add_to(m)
+        folium.LayerControl().add_to(m)
+        # Crea map.html
+        map_path = 'static/map.html'
         m.save(map_path)
+
+        # Perpara los datos a pasar
+        wetlands_info = df_colombia.to_dict(orient='records')
 
     except Exception as e:
         return f"Error: {e}"
 
-    return render_template('map.html')
+    return render_template('index.html', wetlands_info=wetlands_info)
 
-# Función para convertir DMS a decimal
 def dms_to_dd(dms):
     try:
-        # Si el valor ya es un número flotante, retornarlo directamente
         if isinstance(dms, float):
             return dms
-        
-        # Si el valor es una cadena, proceder con la conversión
+        #Pasa las coordenadas geograficas a cartecianas
         if isinstance(dms, str):
             dms = dms.replace('°', ' ').replace('\'', ' ').replace('\"', ' ').split()
             if len(dms) < 3:
