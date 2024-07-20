@@ -28,7 +28,7 @@ p {
 .content {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 35%;
     overflow-y:auto;
     flex-direction:column;
     height: 100vh;
@@ -36,10 +36,10 @@ p {
 
 .map{
     height: 90%;
+    width: 90%;
 }
 
 .timelapse {
-
     margin-bottom: 15px;
 }
 

@@ -53,7 +53,7 @@ def home():
         unprotected_wetlands = gdf_wetlands[~gdf_wetlands.index.isin(protected_wetlands.index)]
 
         # Mapa
-        m = folium.Map(location=[4.5, -74.0], zoom_start=6)
+        m = folium.Map(location=[4.5, -72.5], zoom_start=6)
         folium.TileLayer(tiles='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', attr='© OpenStreetMap contributors © CartoDB', name='CartoDB Positron').add_to(m)
 
         # Capa de humedales
