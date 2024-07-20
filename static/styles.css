@@ -10,35 +10,45 @@ background-image: radial-gradient(18% 28% at 23% 60%, #CEFAFFFF 7%, #073AFF00 10
 
 h1 {
     color: #222;
-    text-align: center;
-    margin-top: 30px;
+}
+
+#map-title {
+    margin-left: 20px;
 }
 
 p {
     color: #666;
-    text-align: center;
 }
 
 .container {
     display: flex;
-    flex-direction: row;
-    margin: 5px;
+    padding-top: 15px;
+    height: 100vh;
 }
 .content {
-    flex: 1 1 40%; /* Ajustar este valor para hacer la columna más angosta */
-    padding: 5px;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    overflow-y:auto;
+    flex-direction:column;
+    height: 100vh;
 }
 
-.map {
-    height: 800px; /* Aumenta la altura del mapa */
-    width: 100%;
-    padding: 0px;
-    border: 1px solid #ccc;
+.map{
+    height: 90%;
+}
+
+.timelapse {
+
+    margin-bottom: 15px;
 }
 
 .info {
     flex: 1 1 60%; /* Ajustar este valor para hacer la segunda columna más ancha */
-    padding: 20px;
     border-left: 1px solid #ccc;
-    margin-left: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 60%;
+    overflow-y: auto;
+    height: 100vh;
 }
