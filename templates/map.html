@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_25139769f9dbd4ea5c8e2463c4c0673f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_25139769f9dbd4ea5c8e2463c4c0673f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_25139769f9dbd4ea5c8e2463c4c0673f = L.map(
+                "map_25139769f9dbd4ea5c8e2463c4c0673f",
+                {
+                    center: [4.5, -74.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bc9ce28824ef0f0d44d1aef077b3bb31 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_bc9ce28824ef0f0d44d1aef077b3bb31.addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var marker_c4b7dc82c81908be5df759355de8159a = L.marker(
+                [4.88333333333, -77.3666666667],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_55654db0365b930b0f7d47a0ab41b02a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c4b7dc82c81908be5df759355de8159a.setIcon(icon_55654db0365b930b0f7d47a0ab41b02a);
+        
+    
+        var popup_73bfb3baf858f65cf35051ed76fd9ae9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f0f9f462f4757eb5ae6ae63be7edc95a = $(`<div id="html_f0f9f462f4757eb5ae6ae63be7edc95a" style="width: 100.0%; height: 100.0%;">Delta del Río Baudó<br>Region: Latin America and the Caribbean<br>Size: 8888.0 ha</div>`)[0];
+                popup_73bfb3baf858f65cf35051ed76fd9ae9.setContent(html_f0f9f462f4757eb5ae6ae63be7edc95a);
+            
+        
+
+        marker_c4b7dc82c81908be5df759355de8159a.bindPopup(popup_73bfb3baf858f65cf35051ed76fd9ae9)
+        ;
+
+        
+    
+    
+            var marker_d5b251be8fe942f3f0d630ec2593e1b8 = L.marker(
+                [1.05, -77.2],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_bc32eeacc83805d578728ede185ef244 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d5b251be8fe942f3f0d630ec2593e1b8.setIcon(icon_bc32eeacc83805d578728ede185ef244);
+        
+    
+        var popup_acb2dc0c05767aaaef024f640d2829fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0f2ae4f594f2c5f44cc053be2b9da7b = $(`<div id="html_d0f2ae4f594f2c5f44cc053be2b9da7b" style="width: 100.0%; height: 100.0%;">Laguna de la Cocha<br>Region: Latin America and the Caribbean<br>Size: 39000.0 ha</div>`)[0];
+                popup_acb2dc0c05767aaaef024f640d2829fa.setContent(html_d0f2ae4f594f2c5f44cc053be2b9da7b);
+            
+        
+
+        marker_d5b251be8fe942f3f0d630ec2593e1b8.bindPopup(popup_acb2dc0c05767aaaef024f640d2829fa)
+        ;
+
+        
+    
+    
+            var marker_07f2eff1de27719b9184514510ba80e1 = L.marker(
+                [10.75, -74.4833333333],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_098db40508cff308e6462bf6a3e867b8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_07f2eff1de27719b9184514510ba80e1.setIcon(icon_098db40508cff308e6462bf6a3e867b8);
+        
+    
+        var popup_a37af000877aced1b3e7f00f9767c59f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a43448910556eace4575a7fdfb458e6c = $(`<div id="html_a43448910556eace4575a7fdfb458e6c" style="width: 100.0%; height: 100.0%;">Sistema Delta Estuarino del Río Magdalena, Ciénaga Grande de Santa Marta<br>Region: Latin America and the Caribbean<br>Size: 400000.0 ha</div>`)[0];
+                popup_a37af000877aced1b3e7f00f9767c59f.setContent(html_a43448910556eace4575a7fdfb458e6c);
+            
+        
+
+        marker_07f2eff1de27719b9184514510ba80e1.bindPopup(popup_a37af000877aced1b3e7f00f9767c59f)
+        ;
+
+        
+    
+    
+            var marker_2302bc14ab38c1c42f219d31aebb52b5 = L.marker(
+                [-3.776603274865197, -70.53980671718497],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_f40e7180eefc3737930a0943a09b92ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2302bc14ab38c1c42f219d31aebb52b5.setIcon(icon_f40e7180eefc3737930a0943a09b92ae);
+        
+    
+        var popup_c9ae36cb0556bc119b6527d8359700d9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ecf4153c1cba495e1675feb489c9cd6 = $(`<div id="html_1ecf4153c1cba495e1675feb489c9cd6" style="width: 100.0%; height: 100.0%;">Complejo de humedales Lagos de Tarapoto<br>Region: Latin America and the Caribbean<br>Size: 45463.96 ha</div>`)[0];
+                popup_c9ae36cb0556bc119b6527d8359700d9.setContent(html_1ecf4153c1cba495e1675feb489c9cd6);
+            
+        
+
+        marker_2302bc14ab38c1c42f219d31aebb52b5.bindPopup(popup_c9ae36cb0556bc119b6527d8359700d9)
+        ;
+
+        
+    
+    
+            var marker_7d3b3451e15f15653519058666fe85d9 = L.marker(
+                [3.821903, -67.85828],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_b45cef3b17a82551983f99743bcff016 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7d3b3451e15f15653519058666fe85d9.setIcon(icon_b45cef3b17a82551983f99743bcff016);
+        
+    
+        var popup_bd48465bc1abde9063efbce114e83d8c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_639b1f3f7a105112a430b961c0935ef3 = $(`<div id="html_639b1f3f7a105112a430b961c0935ef3" style="width: 100.0%; height: 100.0%;">Complejo de Humedales de la Estrella Fluvial Inírida (EFI)<br>Region: Latin America and the Caribbean<br>Size: 250158.91 ha</div>`)[0];
+                popup_bd48465bc1abde9063efbce114e83d8c.setContent(html_639b1f3f7a105112a430b961c0935ef3);
+            
+        
+
+        marker_7d3b3451e15f15653519058666fe85d9.bindPopup(popup_bd48465bc1abde9063efbce114e83d8c)
+        ;
+
+        
+    
+    
+            var marker_28ac0d40cadf47e151f4e77f2cbf354b = L.marker(
+                [4.75, -75.4166666667],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_0c3f749cd3e86864d88711c5f8e68327 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_28ac0d40cadf47e151f4e77f2cbf354b.setIcon(icon_0c3f749cd3e86864d88711c5f8e68327);
+        
+    
+        var popup_2346fe658e963fe3341084db48231d36 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_37fea32e31569f777eb8d7f8e28232b7 = $(`<div id="html_37fea32e31569f777eb8d7f8e28232b7" style="width: 100.0%; height: 100.0%;">Complejo de Humedales Laguna del Otún<br>Region: Latin America and the Caribbean<br>Size: 6579.0 ha</div>`)[0];
+                popup_2346fe658e963fe3341084db48231d36.setContent(html_37fea32e31569f777eb8d7f8e28232b7);
+            
+        
+
+        marker_28ac0d40cadf47e151f4e77f2cbf354b.bindPopup(popup_2346fe658e963fe3341084db48231d36)
+        ;
+
+        
+    
+    
+            var marker_c97edcc66f3e337024b7c8cb9e29799b = L.marker(
+                [4.5, -73.75],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_e071552ccd6a952bd4243826cb09c9fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c97edcc66f3e337024b7c8cb9e29799b.setIcon(icon_e071552ccd6a952bd4243826cb09c9fa);
+        
+    
+        var popup_758563c3ae939dda01302e22b35c448b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_26275ecb4a193b2464762738e8ffed24 = $(`<div id="html_26275ecb4a193b2464762738e8ffed24" style="width: 100.0%; height: 100.0%;">Sistema Lacustre de Chingaza<br>Region: Latin America and the Caribbean<br>Size: 4058.0 ha</div>`)[0];
+                popup_758563c3ae939dda01302e22b35c448b.setContent(html_26275ecb4a193b2464762738e8ffed24);
+            
+        
+
+        marker_c97edcc66f3e337024b7c8cb9e29799b.bindPopup(popup_758563c3ae939dda01302e22b35c448b)
+        ;
+
+        
+    
+    
+            var marker_41652e7d6b374460af598210069717c6 = L.marker(
+                [3.931120436633361, -76.3303074980958],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_bd6c30c91ee6a5cb5965eb00b24e6c33 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_41652e7d6b374460af598210069717c6.setIcon(icon_bd6c30c91ee6a5cb5965eb00b24e6c33);
+        
+    
+        var popup_4252a82a78a983335f6c4544c14b9e58 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_23c33b770e7540f7a1b06af5f38d4dd5 = $(`<div id="html_23c33b770e7540f7a1b06af5f38d4dd5" style="width: 100.0%; height: 100.0%;">Complejo de Humedales del Alto Rio Cauca Asociado a la Laguna de Sonso<br>Region: Latin America and the Caribbean<br>Size: 5524.95 ha</div>`)[0];
+                popup_4252a82a78a983335f6c4544c14b9e58.setContent(html_23c33b770e7540f7a1b06af5f38d4dd5);
+            
+        
+
+        marker_41652e7d6b374460af598210069717c6.bindPopup(popup_4252a82a78a983335f6c4544c14b9e58)
+        ;
+
+        
+    
+    
+            var marker_e5d242eb99cb3b89289ff42dc02c9fee = L.marker(
+                [4.718710970440511, -74.11114572447093],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_239190364beda7dc1d748739c76a48aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e5d242eb99cb3b89289ff42dc02c9fee.setIcon(icon_239190364beda7dc1d748739c76a48aa);
+        
+    
+        var popup_492b8feb6e1b77b6b2e78910d1c7e28e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4e6f27aab764a2f4f26d8689a2daef8e = $(`<div id="html_4e6f27aab764a2f4f26d8689a2daef8e" style="width: 100.0%; height: 100.0%;">Complejo de Humedales Urbanos del Distrito Capital de Bogotá<br>Region: Latin America and the Caribbean<br>Size: 667.38 ha</div>`)[0];
+                popup_492b8feb6e1b77b6b2e78910d1c7e28e.setContent(html_4e6f27aab764a2f4f26d8689a2daef8e);
+            
+        
+
+        marker_e5d242eb99cb3b89289ff42dc02c9fee.bindPopup(popup_492b8feb6e1b77b6b2e78910d1c7e28e)
+        ;
+
+        
+    
+    
+            var marker_f104f28420aca20bfac560f42670b353 = L.marker(
+                [8.320939598628197, -75.05074066595309],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_6e65cb5300b2dc5ce2646af38438a4e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f104f28420aca20bfac560f42670b353.setIcon(icon_6e65cb5300b2dc5ce2646af38438a4e7);
+        
+    
+        var popup_666a6b13c682270d7a0ab34172c9ff86 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c4b8ae0730eddf84e7428d1816510cc1 = $(`<div id="html_c4b8ae0730eddf84e7428d1816510cc1" style="width: 100.0%; height: 100.0%;">Complejo Cenagoso de Ayapel<br>Region: Latin America and the Caribbean<br>Size: 54376.78 ha</div>`)[0];
+                popup_666a6b13c682270d7a0ab34172c9ff86.setContent(html_c4b8ae0730eddf84e7428d1816510cc1);
+            
+        
+
+        marker_f104f28420aca20bfac560f42670b353.bindPopup(popup_666a6b13c682270d7a0ab34172c9ff86)
+        ;
+
+        
+    
+    
+            var marker_405005d646eb4de45502d8b562698cd7 = L.marker(
+                [9.124666693638902, -73.78641525996622],
+                {}
+            ).addTo(map_25139769f9dbd4ea5c8e2463c4c0673f);
+        
+    
+            var icon_47782ac772c4d168774b4935b3e3e06d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_405005d646eb4de45502d8b562698cd7.setIcon(icon_47782ac772c4d168774b4935b3e3e06d);
+        
+    
+        var popup_bc1543d897ebebe7da564d85f15e1897 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31e69082bd588890f01313bde7663b5d = $(`<div id="html_31e69082bd588890f01313bde7663b5d" style="width: 100.0%; height: 100.0%;">Complejo Cenagoso de Zapatosa<br>Region: Latin America and the Caribbean<br>Size: 121725.01 ha</div>`)[0];
+                popup_bc1543d897ebebe7da564d85f15e1897.setContent(html_31e69082bd588890f01313bde7663b5d);
+            
+        
+
+        marker_405005d646eb4de45502d8b562698cd7.bindPopup(popup_bc1543d897ebebe7da564d85f15e1897)
+        ;
+
+        
+    
+</script>
+</html>
