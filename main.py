@@ -37,8 +37,7 @@ def home():
         df = pd.read_csv(file_path, delimiter=',', quotechar='"')
         df['Latitude'] = df['Latitude'].apply(lambda x: dms_to_dd(x))
         df['Longitude'] = df['Longitude'].apply(lambda x: dms_to_dd(x))
-        df = df.dropna(subset=['Latitude', 'Longitude'])
-        df_colombia = df[df['Country'] == 'Colombia']
+        df_colombia = df.dropna(subset=['Latitude', 'Longitude'])
 
         # Carga de zonas de protección ambiental
         proteccion_ambiental_path = 'data/Parques_Nacionales_Naturales_de_Colombia.shp'
@@ -70,12 +69,14 @@ def home():
             else:
                 return 'red'
 
+
+
         # Marcadores protegidos
         for _, row in protected_wetlands.iterrows():
             color = get_color(row['Site name'])
             popup_info = f"""
             <b>{row['Site name']}</b><br>
-            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}')">Ver Información</button>
+            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
             """
             folium.Marker(
                 location=[row['Latitude'], row['Longitude']],
@@ -88,7 +89,7 @@ def home():
             color = get_color(row['Site name'])
             popup_info = f"""
             <b>{row['Site name']}</b><br>
-            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}')">Ver Información</button>
+            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
             """
             folium.Marker(
                 location=[row['Latitude'], row['Longitude']],

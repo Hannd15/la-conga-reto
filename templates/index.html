@@ -6,6 +6,25 @@
     <title>Mapa de Humedales en Colombia</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
+        let currentWetlandId = null;
+
+        async function translate(text) {
+            const res = await fetch("http://168.138.132.122:5000/translate", {
+                method: "POST",
+                body: JSON.stringify({
+                    q: text,
+                    source: "auto",
+                    target: "es",
+                    format: "text",
+                    api_key: ""
+                }),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            const jsonResponse = await res.json();
+            return jsonResponse.translatedText;
+        }
+
         function escapeHtml(text) {
             return text.replace(/&/g, "&")
                        .replace(/</g, "<")
@@ -26,15 +45,32 @@
             }
         }
 
-        function showWetlandInfo(name, territory, designationDate, area, summary, lat, lon) {
+        async function showWetlandInfo(name, territory, designationDate, area, summary, lat, lon, threats, id) {
+            currentWetlandId = id;
             const zoomLevel = calculateZoomLevel(parseFloat(area));
+
+            // Mostrar información básica inmediatamente
             document.getElementById('wetland-info').innerHTML = `
                 <b>Nombre:</b> ${escapeHtml(name)}<br>
                 <b>Territorio:</b> ${escapeHtml(territory)}<br>
                 <b>Fecha de Designación:</b> ${escapeHtml(designationDate)}<br>
                 <b>Área:</b> ${escapeHtml(area)} ha<br>
+                <b>Factores de riesgo:</b> Traduciendo...<br>
             `;
+
             document.getElementById('timelapse').src = `https://earthengine.google.com/iframes/timelapse_player_embed.html#v=${lat},${lon},${zoomLevel},latLng&t=3.83&ps=25&bt=19840101&et=20221231`;
+
+            // Traducir los factores de riesgo sin bloquear la carga de otros elementos
+            const translatedThreats = await translate(escapeHtml(threats));
+            if (currentWetlandId === id) {
+                document.getElementById('wetland-info').innerHTML = `
+                    <b>Nombre:</b> ${escapeHtml(name)}<br>
+                    <b>Territorio:</b> ${escapeHtml(territory)}<br>
+                    <b>Fecha de Designación:</b> ${escapeHtml(designationDate)}<br>
+                    <b>Área:</b> ${escapeHtml(area)} ha<br>
+                    <b>Factores de riesgo:</b> ${translatedThreats}<br>
+                `;
+            }
         }
     </script>
 </head>
@@ -43,7 +79,6 @@
         <div class="content">
             <div class="title">
                 <h1 id="map-title">Mapa de Humedales en Colombia</h1>
-                
             </div>
             <div class="map">
                 <iframe src="{{ url_for('static', filename='map.html') }}" width="100%" height="95%" frameborder="0"></iframe>
