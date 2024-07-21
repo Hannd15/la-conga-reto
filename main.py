@@ -2,7 +2,6 @@ from flask import Flask, render_template
 import pandas as pd
 import folium
 import geopandas as gpd
-from shapely.geometry import Point
 
 app = Flask(__name__)
 
@@ -48,7 +47,7 @@ def home():
 
         # Intersección espacial
         protected_wetlands = gpd.sjoin(gdf_wetlands, gdf_national_parks, how='inner', predicate='intersects')
-        
+
         # Encuentra los humedales fuera de zonas protegidas
         unprotected_wetlands = gdf_wetlands[~gdf_wetlands.index.isin(protected_wetlands.index)]
 
@@ -69,33 +68,39 @@ def home():
             else:
                 return 'red'
 
-
-
         # Marcadores protegidos
         for _, row in protected_wetlands.iterrows():
-            color = get_color(row['Site name'])
-            popup_info = f"""
-            <b>{row['Site name']}</b><br>
-            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
-            """
-            folium.Marker(
-                location=[row['Latitude'], row['Longitude']],
-                popup=folium.Popup(popup_info, max_width=225),
-                icon=folium.Icon(color=color)
-            ).add_to(protected_layer)
+            try:
+                color = get_color(row['Site name'])
+                popup_info = f"""
+                <b>{row['Site name']}</b><br>
+                <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
+                """
+                popup_info = folium.Popup(popup_info, max_width=225)
+                folium.Marker(
+                    location=[row['Latitude'], row['Longitude']],
+                    popup=popup_info,
+                    icon=folium.Icon(color=color)
+                ).add_to(protected_layer)
+            except Exception as e:
+                print(f"Error creando marcador protegido: {e}")
 
         # Marcadores no protegidos
         for _, row in unprotected_wetlands.iterrows():
-            color = get_color(row['Site name'])
-            popup_info = f"""
-            <b>{row['Site name']}</b><br>
-            <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
-            """
-            folium.Marker(
-                location=[row['Latitude'], row['Longitude']],
-                popup=folium.Popup(popup_info, max_width=225),
-                icon=folium.Icon(color=color)
-            ).add_to(not_protected_layer)
+            try:
+                color = get_color(row['Site name'])
+                popup_info = f"""
+                <b>{row['Site name']}</b><br>
+                <button onclick="parent.showWetlandInfo('{row['Site name']}', '{row['Territory']}', '{row['Designation date']}', '{row['Area (ha)']}', '{row['Annotated summary']}', '{row['Latitude']}', '{row['Longitude']}', '{row['Threats']}', '{row['Ramsar Site No.']}')">Ver Información</button>
+                """
+                popup_info = folium.Popup(popup_info, max_width=225)
+                folium.Marker(
+                    location=[row['Latitude'], row['Longitude']],
+                    popup=popup_info,
+                    icon=folium.Icon(color=color)
+                ).add_to(not_protected_layer)
+            except Exception as e:
+                print(f"Error creando marcador no protegido: {e}")
 
         # Añade capa de elementos y estilo
         protected_layer.add_to(m)
