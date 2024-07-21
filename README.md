@@ -64,4 +64,4 @@ Se usan los datos provistos por los sitios Ramsar y se traducen del inglés al e
 
 ### Traductor
 
-La traducción se realiza en una máquina virtual en la nube ejecutando el servicio de traducción [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate).
+La traducción se realiza en una [máquina virtual en la nube](http://168.138.132.122:5000/) ejecutando el servicio de traducción [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate).
