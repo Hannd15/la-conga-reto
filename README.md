@@ -2,6 +2,8 @@
 
 Esta aplicación web muestra un mapa interactivo de humedales en Colombia, clasificándolos según su ubicación dentro o fuera de zonas de protección ambiental y permitiendo a los usuarios ver información detallada y timelapses de los humedales.
 
+Video: [https://youtu.be/YuuuWvuJ6fk]
+
 ## Funcionalidades
 
 - Muestra un mapa interactivo con los humedales de Colombia.
