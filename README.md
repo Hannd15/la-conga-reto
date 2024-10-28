@@ -64,6 +64,6 @@ Los timelapses se embebeden de Google Earth Engine usando su API y se enfocan en
 
 Se usan los datos provistos por los sitios Ramsar y se traducen del inglés al español para permitir una mejor accesibilidad.
 
-### Traductor
+### Traductor - No funcionando actualmente
 
 La traducción se realiza en una máquina virtual en la nub ejecutando el servicio de traducción [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate).
